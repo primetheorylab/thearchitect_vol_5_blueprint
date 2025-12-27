@@ -1,0 +1,168 @@
+<!-- 
+    PANDUAN STRUKTUR FILE (OPSI 1 - GERBANG UTAMA):
+    
+    Agar menu di bawah berfungsi, pastikan Anda mengubah nama file (Rename) 
+    di GitHub Anda menjadi seperti daftar berikut:
+
+    1. Volume 1 -> ebook_preview_vol1.html
+    2. Volume 2 -> ebook_preview_vol2.html
+    3. Volume 3 -> ebook_preview_vol3.html
+    4. Volume 4 -> ebook_preview_vol4.html
+    5. Volume 5 -> ebook_preview_vol5.html
+
+    File ini (Menu Utama) harus dinamakan: index.html
+-->
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PrimeTheory.Lab: Premium Access</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        body { background-color: #0f172a; color: white; font-family: 'Inter', sans-serif; }
+        .font-oswald { font-family: 'Oswald', sans-serif; }
+        .hidden { display: none; }
+        .btn-volume {
+            display: block;
+            width: 100%;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            background: #1e293b;
+            border: 1px solid #334155;
+            color: white;
+            text-align: left;
+            border-radius: 0.5rem;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+        .btn-volume:hover {
+            background: #06b6d4; /* Cyan */
+            border-color: #22d3ee;
+            color: #0f172a;
+            font-weight: bold;
+        }
+        .input-field {
+            background: #1e293b;
+            border: 1px solid #334155;
+            color: white;
+            padding: 1rem;
+            width: 100%;
+            border-radius: 0.5rem;
+            outline: none;
+            margin-bottom: 1rem;
+            font-family: 'Oswald', sans-serif;
+            letter-spacing: 2px;
+            text-align: center;
+        }
+        .input-field:focus { border-color: #06b6d4; }
+    </style>
+</head>
+<body class="flex items-center justify-center min-h-screen p-4">
+
+    <div class="max-w-md w-full">
+        
+        <!-- LOGO HEADER -->
+        <div class="text-center mb-10">
+            <h1 class="text-cyan-400 tracking-[0.4em] font-bold text-sm mb-2">PRIMETHEORY.LAB</h1>
+            <h2 class="text-4xl font-oswald font-bold text-white">THE ARCHITECT</h2>
+            <div class="h-1 w-20 bg-cyan-500 mx-auto mt-4 rounded-full"></div>
+        </div>
+
+        <!-- LOGIN GATE -->
+        <div id="login-section" class="bg-slate-800/50 p-8 rounded-xl border border-slate-700 shadow-2xl backdrop-blur-sm">
+            <p class="text-slate-400 text-center mb-6 text-sm">Masukkan Kunci Akses Premium Anda</p>
+            
+            <input type="password" id="passwordInput" class="input-field" placeholder="ENTER PASSCODE">
+            
+            <button onclick="checkAccess()" class="w-full bg-cyan-600 hover:bg-cyan-500 text-white font-oswald font-bold py-4 rounded-lg transition-all tracking-widest">
+                UNLOCK ACCESS
+            </button>
+            
+            <p id="errorMsg" class="text-red-500 text-center text-xs mt-4 hidden">Akses Ditolak. Kode Salah.</p>
+        </div>
+
+        <!-- CONTENT MENU (Hidden by default) -->
+        <div id="menu-section" class="hidden">
+            <p class="text-slate-400 text-center mb-6 text-sm">Selamat Datang, Architect.</p>
+            
+            <a href="ebook_preview_vol1.html" class="btn-volume group">
+                <span class="text-cyan-400 text-xs tracking-widest block mb-1">MODULE 01</span>
+                <span class="font-oswald text-xl">BIOLOGY & STRUCTURE</span>
+            </a>
+            
+            <a href="ebook_preview_vol2.html" class="btn-volume group">
+                <span class="text-cyan-400 text-xs tracking-widest block mb-1">MODULE 02</span>
+                <span class="font-oswald text-xl">PHYSIQUE & HYPERTROPHY</span>
+            </a>
+            
+            <a href="ebook_preview_vol3.html" class="btn-volume group">
+                <span class="text-cyan-400 text-xs tracking-widest block mb-1">MODULE 03</span>
+                <span class="font-oswald text-xl">VISUAL STYLE SYSTEM</span>
+            </a>
+
+            <a href="ebook_preview_vol4.html" class="btn-volume group">
+                <span class="text-cyan-400 text-xs tracking-widest block mb-1">MODULE 04</span>
+                <span class="font-oswald text-xl">SOCIAL MASTERY</span>
+            </a>
+
+            <a href="ebook_preview_vol5.html" class="btn-volume group">
+                <span class="text-cyan-400 text-xs tracking-widest block mb-1">MODULE 05</span>
+                <span class="font-oswald text-xl">THE BLUEPRINT (MINDSET)</span>
+            </a>
+            
+            <button onclick="logout()" class="w-full mt-8 text-slate-500 text-xs hover:text-white transition-colors">
+                Kunci Kembali (Lock)
+            </button>
+        </div>
+
+    </div>
+
+    <script>
+        // SETTING PASSWORD DISINI
+        const CORRECT_PASS = "ARCHITECT2025"; 
+
+        function checkAccess() {
+            const input = document.getElementById('passwordInput').value;
+            const error = document.getElementById('errorMsg');
+            
+            if (input === CORRECT_PASS) {
+                // Sukses
+                document.getElementById('login-section').classList.add('hidden');
+                document.getElementById('menu-section').classList.remove('hidden');
+                // Simpan status login di browser (opsional, biar ga login ulang terus)
+                sessionStorage.setItem('is_logged_in', 'true');
+            } else {
+                // Gagal
+                error.classList.remove('hidden');
+                // Efek getar
+                const box = document.getElementById('login-section');
+                box.classList.add('animate-pulse');
+                setTimeout(() => box.classList.remove('animate-pulse'), 200);
+            }
+        }
+
+        // Cek apakah user sudah login sebelumnya (saat refresh)
+        window.onload = function() {
+            if (sessionStorage.getItem('is_logged_in') === 'true') {
+                document.getElementById('login-section').classList.add('hidden');
+                document.getElementById('menu-section').classList.remove('hidden');
+            }
+        }
+
+        function logout() {
+            sessionStorage.removeItem('is_logged_in');
+            location.reload();
+        }
+
+        // Allow Enter key
+        document.getElementById("passwordInput").addEventListener("keypress", function(event) {
+            if (event.key === "Enter") {
+                checkAccess();
+            }
+        });
+    </script>
+</body>
+</html>
