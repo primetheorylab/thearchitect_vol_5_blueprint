@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Architect Vol. 5: The Blueprint</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Oswald:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        body { background-color: #f8fafc; font-family: 'Inter', sans-serif; padding: 20px 0; color: #1e293b; margin: 0; }
+        .page-container { display: flex; flex-direction: column; gap: 20px; align-items: center; width: 100%; padding: 0 10px; box-sizing: border-box; }
+        .page { width: 100%; max-width: 100%; min-height: auto; padding-bottom: 60px; background-color: white; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); position: relative; overflow: hidden; flex-shrink: 0; display: flex; flex-direction: column; }
+        @media (min-width: 768px) { body { padding: 40px 0; } .page-container { gap: 40px; padding: 0; } .page { width: 210mm; min-height: 297mm; max-width: none; padding-bottom: 0; } }
+        h1, h2, h3, h4, .font-oswald { font-family: 'Oswald', sans-serif; text-transform: uppercase; }
+        .content-padding { padding: 1.5rem; }
+        @media (min-width: 768px) { .content-padding { padding: 3rem; } }
+        .section-break { margin-top: 2rem; margin-bottom: 2rem; border-bottom: 1px solid #e2e8f0; }
+        .cyan-box { background-color: #ecfeff; border-left: 4px solid #06b6d4; padding: 1rem; margin-top: 1rem; margin-bottom: 1rem; }
+        .slate-box { background-color: #f1f5f9; border-left: 4px solid #334155; padding: 1rem; margin-top: 1rem; margin-bottom: 1rem; }
+        .page-number { position: absolute; bottom: 15px; right: 15px; font-family: 'Oswald', sans-serif; font-size: 12px; color: #94a3b8; }
+        .footer-logo { position: absolute; bottom: 15px; left: 15px; font-family: 'Oswald', sans-serif; font-size: 10px; color: #cbd5e1; letter-spacing: 2px; }
+        p { margin-bottom: 1rem; line-height: 1.6; font-size: 0.95rem; text-align: justify; }
+        ul, ol { margin-bottom: 1rem; padding-left: 1.25rem; }
+        li { margin-bottom: 0.5rem; font-size: 0.95rem; line-height: 1.6; }
+        strong { color: #0f172a; font-weight: 700; }
+        .chapter-title { font-size: 2rem; font-weight: 700; line-height: 1.1; margin-bottom: 1.5rem; color: #0f172a; }
+        @media (min-width: 768px) { .chapter-title { font-size: 2.5rem; } }
+        .sub-title { font-size: 1.25rem; font-weight: 600; color: #06b6d4; margin-bottom: 1rem; font-family: 'Oswald', sans-serif; }
+        .technical-img { width: 100%; height: auto; border: 1px solid #e2e8f0; display: block; margin-top: 1rem; margin-bottom: 0.5rem; background-color: #f8fafc; }
+        .img-caption { font-size: 0.75rem; color: #64748b; text-align: center; font-style: italic; margin-bottom: 1.5rem; }
+        .timeline-item { display: flex; gap: 1rem; margin-bottom: 1rem; border-bottom: 1px solid #f1f5f9; padding-bottom: 1rem; }
+        .timeline-time { font-family: 'Oswald', sans-serif; color: #06b6d4; font-weight: bold; min-width: 60px; }
+    </style>
+</head>
+<body>
+    <div class="page-container">
+
+        <!-- PAGE 1: COVER -->
+        <div class="page bg-slate-900 text-white relative flex flex-col justify-between p-6 md:p-10 min-h-[500px] md:min-h-[297mm]">
+            <div class="z-10 flex justify-between items-start border-b border-slate-700 pb-4">
+                <div class="text-cyan-400 text-xs tracking-[0.2em] md:tracking-[0.4em] font-bold">PRIMETHEORY.LAB</div>
+                <div class="text-slate-500 text-[10px] text-right">PREMIUM EDITION<br>VOL. 05 - 2025</div>
+            </div>
+            <div class="z-10 flex-grow flex items-center justify-center my-8 md:my-0">
+                <img src="assets/v5-cover.jpg" onerror="this.onerror=null; this.src='https://placehold.co/600x600/0f172a/06b6d4?text=FILE+NEEDED:+assets/v5-cover.jpg';" alt="Cover Art" class="rounded-full border-4 border-cyan-500/30 shadow-[0_0_50px_rgba(6,182,212,0.3)] max-w-[80%] md:max-w-[80%] object-cover aspect-square">
+            </div>
+            <div class="z-10 mb-10">
+                <h1 class="text-5xl md:text-[7rem] font-bold leading-none text-white tracking-tighter">THE<br><span class="text-cyan-500">ARCHITECT</span></h1>
+                <div class="flex items-center gap-4 mt-6">
+                    <div class="h-1 w-10 md:w-20 bg-white"></div>
+                    <h2 class="text-lg md:text-2xl text-slate-300 font-light tracking-widest">VOLUME 5: BLUEPRINT</h2>
+                </div>
+                <p class="text-slate-400 mt-4 text-sm max-w-sm">The Blueprint: Mindset, Productivity & Lifestyle Systems.</p>
+            </div>
+        </div>
+
+        <!-- PAGE 2: TOC -->
+        <div class="page bg-white content-padding">
+            <div class="mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-8 font-oswald">DAFTAR ISI VOL. 5</h2>
+                <ul class="space-y-4 font-oswald text-slate-700 text-sm md:text-base">
+                    <li class="flex justify-between border-b border-slate-200 pb-2"><span>1. PENDAHULUAN: Systems Over Willpower</span> <span>03</span></li>
+                    <li class="flex justify-between border-b border-slate-200 pb-2"><span>2. CHAPTER 1: INTERNAL OPERATING SYSTEM</span> <span>04</span></li>
+                    <li class="flex justify-between border-b border-slate-200 pb-2"><span>3. CHAPTER 2: PRODUCTIVITY ARCHITECTURE</span> <span>06</span></li>
+                    <li class="flex justify-between border-b border-slate-200 pb-2"><span>4. CHAPTER 3: FINANCIAL GROOMING</span> <span>07</span></li>
+                    <li class="flex justify-between border-b border-slate-200 pb-2"><span>5. CHAPTER 4: DATING LOGISTICS</span> <span>09</span></li>
+                    <li class="flex justify-between border-b border-slate-200 pb-2"><span>6. CHAPTER 5: HABIT ARCHITECTURE</span> <span>11</span></li>
+                    <li class="flex justify-between border-b border-slate-200 pb-2"><span>7. CHAPTER 6: THE PERFECT DAY (RUTINITAS)</span> <span>12</span></li>
+                    <li class="flex justify-between border-b border-slate-200 pb-2"><span>8. PENUTUP: THE INFINITE GAME</span> <span>16</span></li>
+                </ul>
+            </div>
+            <div class="mt-auto text-xs text-slate-500">
+                <p class="font-bold mb-2">DISCLAIMER</p>
+                <p>Buku ini disusun berdasarkan strategi pengembangan diri dan manajemen gaya hidup. Penulis tidak bertanggung jawab atas keputusan finansial atau pribadi yang diambil pembaca.</p>
+                <p class="mt-4">&copy; 2025 PrimeTheory.Lab. All rights reserved.</p>
+            </div>
+            <div class="page-number">02</div>
+        </div>
+
+        <!-- PAGE 3: INTRO -->
+        <div class="page bg-white content-padding bg-grid">
+            <h1 class="chapter-title">PENDAHULUAN:<br>SYSTEMS OVER WILLPOWER</h1>
+            <img src="assets/v5-intro.jpg" onerror="this.onerror=null; this.src='https://placehold.co/800x300/f8fafc/334155?text=FILE+NEEDED:+assets/v5-intro.jpg';" alt="System vs Willpower" class="technical-img mb-6">
+            <p>Motivasi itu sampah, Bro. Motivasi itu kayak gula—ngasih energi cepet, meledak, terus sejam lagi lo lemes (crash).</p>
+            <p>Cowok berkualitas gak ngandelin motivasi ("Gue pengen olahraga"). Mereka ngandelin <strong>Sistem</strong> ("Jam 17.00 adalah waktu gym, mau gue lagi mood, sedih, atau males, gue tetep berangkat").</p>
+            
+            <h3 class="sub-title mt-6">Identity Shifting</h3>
+            <ul class="list-disc space-y-2 mb-6">
+                <li><strong>Kesalahan pemula:</strong> Fokus pada Goal ("Gue mau turun 5kg").</li>
+                <li><strong>Cara The Architect:</strong> Fokus pada Identitas ("Gue adalah Atlet").</li>
+            </ul>
+            <div class="slate-box"><p class="mb-0 text-sm">Kalau lo anggep diri lo atlet, lo gak bakal makan gorengan tiap hari. Bukan karena terpaksa, tapi karena "Itu bukan makanan atlet." Ubah cara lo ngelihat diri sendiri, maka tindakan lo bakal ngikut otomatis.</p></div>
+            
+            <h3 class="sub-title mt-6">The 1% Rule (Compound Interest)</h3>
+            <p class="mb-2">Matematika pengembangan diri itu simpel: <strong>1.01 pangkat 365 = 37.7</strong>.</p>
+            <img src="assets/v5-diagram-1percent.jpg" onerror="this.onerror=null; this.src='https://placehold.co/800x200/f1f5f9/334155?text=FILE+NEEDED:+assets/v5-diagram-1percent.jpg';" alt="1% Better Graph" class="technical-img mb-4">
+            <p>Kalau lo improve 1% aja tiap hari (baca 5 halaman, push up 10x), setahun lagi lo bakal <strong>37x lebih baik</strong>. Sebaliknya, kalau lo memburuk 1% tiap hari, lo bakal hancur jadi nol. Konsistensi kecil mengalahkan intensitas sesaat.</p>
+            <div class="page-number">03</div>
+            <div class="footer-logo">THE ARCHITECT</div>
+        </div>
+
+        <!-- PAGE 4: CHAP 1 -->
+        <div class="page bg-white content-padding">
+            <h1 class="chapter-title">CHAPTER 1:<br>INTERNAL OPERATING SYSTEM (STOICISM 2.0)</h1>
+            <p>Lo bisa punya badan kekar dan dompet tebel, tapi kalau mental lo lembek (Fragile Ego), lo bakal ancur pas dunia nguji lo. Sifat paling maskulin bukanlah agresivitas, melainkan <strong>Kestabilan Emosi</strong>.</p>
+            
+            <h3 class="sub-title mt-6">1. The Art of Non-Reactivity</h3>
+            <p>Dunia (termasuk wanita, atasan, jalanan macet) itu emosional dan kaotis. Tugas lo sebagai cowok adalah jadi <strong>Batu Karang</strong>. Ombak boleh ngehantam, tapi batu karang gak geser.</p>
+            <div class="bg-slate-50 p-4 border-l-4 border-slate-800 mb-6">
+                <p class="text-sm font-bold">Skenario & Respon:</p>
+                <p class="text-sm mt-2 italic">Situasi: Cewek batalin janji dadakan atau bales chat lama banget.</p>
+                <p class="text-sm mt-2"><span class="text-red-600 font-bold">Cowok Lemah:</span> Marah, ngirim chat panjang lebar ("Kok gitu sih? Kamu gak hargain aku!"), atau nyindir di story (Pasif-Agresif).</p>
+                <p class="text-sm mt-2"><span class="text-cyan-700 font-bold">The Architect:</span> "Oke, no problem. Kabari aja kalau jadwal lo udah kosong."</p>
+                <p class="text-xs italic text-slate-500 mt-1">(Lalu taruh HP, lanjut kerja/gym. Jangan chat dia lagi sampe dia yang ngehubungi. Lo punya hal lebih penting buat diurus daripada nungguin notif).</p>
+            </div>
+            
+            <h3 class="sub-title">2. Digital Stoicism</h3>
+            <p>Di jaman sekarang, musuh Stoikisme bukan Kaisar Romawi, tapi Instagram & TikTok.</p>
+            <p><strong>Envy (Iri):</strong> Liat temen sukses/liburan, lo ngerasa insecure. Inget: Sosmed itu <em>Highlight Reel</em>. Lo ngebandingin "Behind The Scene" lo yang berantakan sama "Panggung" mereka yang udah diedit.</p>
+            <p><strong>Solusi:</strong> Mute atau Unfollow akun yang bikin lo ngerasa miskin/jelek. Follow akun yang ngajarin skill atau bisnis. Jadikan HP lo alat produksi, bukan alat konsumsi.</p>
+            <div class="page-number">04</div>
+            <div class="footer-logo">THE ARCHITECT</div>
+        </div>
+
+        <!-- PAGE 5: CHAP 1 CONT -->
+        <div class="page bg-white content-padding">
+            <h3 class="sub-title">3. Frame Control & "Shit Tests"</h3>
+            <p>Wanita secara bawah sadar bakal ngelakuin "Shit Test" (Tes Kualitas) buat liat lo itu cowok dominan atau cowok yang gampang disetir.</p>
+            <div class="bg-slate-50 p-4 border border-slate-200 mt-4 mb-6">
+                <p class="font-bold text-slate-900 mb-2">Tes: "Baju kamu kok warnanya aneh sih?" / "Kamu kayak buaya ya."</p>
+                <ul class="list-disc pl-4 text-sm space-y-2">
+                    <li><strong>Respon Salah (Defensif):</strong> "Enggak kok, ini baju mahal!" / "Sumpah aku setia!" (Lo masuk ke permainan dia, nyoba buktiin diri. Lo kalah).</li>
+                    <li><strong>Respon Benar (Amplify & Agree):</strong> "Iya nih, lagi nyoba gaya gembel elite." / "Wah ketahuan deh, padahal udah disembunyiin." (Ngetawain diri sendiri atau melebih-lebihkan tuduhan nunjukin kepercayaan diri tingkat dewa).</li>
+                </ul>
+            </div>
+
+            <h3 class="sub-title">4. The Dichotomy of Control</h3>
+            <p>Ini adalah algoritma efisiensi otak. Otak lo punya energi terbatas (Glukosa/ATP). Kalau lo pake buat mikirin hal yang gak bisa lo atur, lo lagi buang-buang bensin buat mobil yang mogok.</p>
+            <p>Filosofi Stoik membagi realita jadi dua:</p>
+            <ul class="list-disc space-y-2 mb-4">
+                <li><strong>Out of Control (Eksternal):</strong> Cuaca, macet, omongan orang, keputusan bos, masa lalu, dan <em>hasil akhir</em>.
+                    <br><span class="text-sm italic text-slate-500">Sikap: Terima (Amor Fati). Jangan komplain. Komplain adalah sinyal lo lemah dan kaget sama realita.</span>
+                </li>
+                <li><strong>In Control (Internal):</strong> Usaha lo, persiapan lo, skill lo, dan <em>respon lo</em> terhadap masalah.
+                    <br><span class="text-sm italic text-slate-500">Sikap: Fokus Laser. Hajar habis-habisan di sini.</span>
+                </li>
+            </ul>
+            <img src="assets/v5-diagram-control.jpg" onerror="this.onerror=null; this.src='https://placehold.co/800x400/f1f5f9/334155?text=FILE+NEEDED:+assets/v5-diagram-control.jpg';" alt="Dichotomy of Control Diagram" class="technical-img mb-4">
+            <div class="bg-slate-50 p-4 border-l-4 border-cyan-500">
+                <p class="font-bold text-slate-900 text-sm mb-1">STUDI KASUS: NAIK JABATAN</p>
+                <p class="text-sm text-slate-700"><strong>Cara Salah (Cemas):</strong> Mikirin "Duh, Bos bakal pilih gue gak ya? Si A saingan berat nih." (Lo stres mikirin Hasil & Orang Lain).</p>
+                <p class="text-sm text-slate-700 mt-2"><strong>Cara Architect (Stoic):</strong> "Gue bakal dateng on-time, kerja 110%, dan presentasi data terbaik. Masalah gue dipilih atau enggak, itu di luar kendali gue." (Lo tidur nyenyak karena lo udah lakuin bagian lo).</p>
+            </div>
+            <div class="page-number">05</div>
+            <div class="footer-logo">THE ARCHITECT</div>
+        </div>
+
+        <!-- PAGE 6: CHAP 2 -->
+        <div class="page bg-white content-padding">
+            <h1 class="chapter-title">CHAPTER 2:<br>PRODUCTIVITY ARCHITECTURE (KARIR)</h1>
+            <p>Gimana caranya lo bisa kerja, nge-gym, skincare, dan nongkrong dalam 24 jam? Jawabannya: Efisiensi.</p>
+
+            <h3 class="sub-title mt-6">1. Deep Work Protocol</h3>
+            <ul class="list-disc space-y-2 mb-4">
+                <li>Kerja 8 jam sambil cek WA tiap 5 menit = Hasil 2 jam.</li>
+                <li>Kerja 4 jam tanpa gangguan = Hasil 8 jam.</li>
+            </ul>
+            <div class="cyan-box">
+                <p class="mb-0 text-sm"><strong>Protokol:</strong> Pilih satu tugas terberat. Set timer 90 menit. Matikan notifikasi HP/Taruh HP di ruangan lain. Kerjakan satu hal itu aja. Pas lo Deep Work, lo gak boleh bisa dihubungi siapapun (kecuali darurat militer).</p>
+            </div>
+
+            <h3 class="sub-title mt-6">2. Dopamine Detox</h3>
+            <p>Otak lo rusak gara-gara short form content (Reels/TikTok). Attention span lo hancur. Lo jadi males ngerjain hal susah.</p>
+            <p><strong>Latihan:</strong> Biasain bosen. Pas nunggu lift atau antri, JANGAN buka HP. Liat sekitar. Latih otak lo buat gak butuh stimulasi instan. Ini bakal bikin lo lebih tahan banting pas kerja keras atau olahraga berat.</p>
+
+            <h3 class="sub-title mt-6">3. The Eisenhower Matrix</h3>
+            <p>Otak lo sering ketipu. Lo ngerasa sibuk, tapi sebenernya lo gak produktif. Itu karena lo terjebak ngerjain hal yang "Mendesak" (ada notifnya/berisik) tapi sebenernya "Gak Penting" buat masa depan lo.</p>
+            <p class="mb-4">Gunakan matriks ini buat mengaudit kegiatan harian lo secara brutal:</p>
+
+            <img src="assets/v5-diagram-eisenhower.jpg" onerror="this.onerror=null; this.src='https://placehold.co/800x400/f1f5f9/334155?text=FILE+NEEDED:+assets/v5-diagram-eisenhower.jpg';" alt="Eisenhower Matrix" class="technical-img mb-4">
+
+            <div class="space-y-4 mb-8">
+                <div class="bg-green-50 p-4 border-l-4 border-green-500">
+                    <h4 class="font-bold text-green-900 text-sm">Q1: PENTING & MENDESAK (DO IT)</h4>
+                    <p class="text-sm mt-1 text-slate-700">Krisis, deadline besok, sakit gigi, masalah keluarga.</p>
+                    <p class="text-xs font-bold text-green-700 mt-2">TINDAKAN: Kerjain sekarang juga. Jangan ditunda atau lo hancur.</p>
+                </div>
+                <div class="bg-cyan-50 p-4 border-l-4 border-cyan-500">
+                    <h4 class="font-bold text-cyan-900 text-sm">Q2: PENTING & TIDAK MENDESAK (SCHEDULE)</h4>
+                    <p class="text-sm mt-1 text-slate-700">Nge-gym, baca buku, planning bisnis, networking, belajar skill baru.</p>
+                    <p class="text-xs font-bold text-cyan-700 mt-2">TINDAKAN: Jadwalkan di kalender. Ini adalah "Zona The Architect". Lo harus abisin 70% waktu lo di sini kalau mau sukses jangka panjang.</p>
+                </div>
+                <div class="bg-yellow-50 p-4 border-l-4 border-yellow-500">
+                    <h4 class="font-bold text-yellow-900 text-sm">Q3: TIDAK PENTING & MENDESAK (DELEGATE)</h4>
+                    <p class="text-sm mt-1 text-slate-700">Notifikasi WA grup, ajakan nongkrong dadakan, email spam, meeting gak jelas.</p>
+                    <p class="text-xs font-bold text-yellow-700 mt-2">TINDAKAN: Tolak, mute, atau suruh orang lain. Ini adalah gangguan yang menyamar jadi pekerjaan.</p>
+                </div>
+                <div class="bg-slate-100 p-4 border-l-4 border-slate-500">
+                    <h4 class="font-bold text-slate-900 text-sm">Q4: TIDAK PENTING & TIDAK MENDESAK (DELETE)</h4>
+                    <p class="text-sm mt-1 text-slate-700">Scroll TikTok 2 jam, debat di komen sosmed, nonton TV, gosip.</p>
+                    <p class="text-xs font-bold text-slate-700 mt-2">TINDAKAN: Eliminasi total. Ini sampah mental.</p>
+                </div>
+            </div>
+            <div class="page-number">06</div>
+            <div class="footer-logo">THE ARCHITECT</div>
+        </div>
+
+        <!-- PAGE 7: CHAP 3 -->
+        <div class="page bg-white content-padding">
+            <h1 class="chapter-title">CHAPTER 3:<br>FINANCIAL GROOMING (BUDGETING)</h1>
+            <p>"Glow Up butuh modal, Bang." Bener. Tapi gak harus kaya raya. Lo cuma butuh Alokasi Cerdas. Stop beli aset depresiasi (Skin game, rokok, jajan kopi susu berlebihan), alihkan ke Aset Diri.</p>
+
+            <h3 class="sub-title mt-6">ROI of Looks (Return on Investment)</h3>
+            <p>Studi ekonomi menunjukkan "Beauty Premium": orang yang berpenampilan menarik dapet gaji lebih tinggi, promosi lebih cepet, dan hukuman sosial lebih ringan. Uang buat gym dan skincare bukan "Biaya", tapi <strong>"Investasi Karir"</strong>.</p>
+
+            <h3 class="sub-title mt-6">Konsep "Cost Per Wear" (CPW)</h3>
+            <p>Jangan liat harga tag doang. Liat CPW.</p>
+            <img src="assets/v5-diagram-cpw.jpg" onerror="this.onerror=null; this.src='https://placehold.co/800x200/f1f5f9/334155?text=FILE+NEEDED:+assets/v5-diagram-cpw.jpg';" alt="Cost Per Wear" class="technical-img mb-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4 mb-6">
+                <div class="bg-red-50 p-4 border border-red-200">
+                    <h4 class="font-bold text-red-800 text-sm">BAJU MURAH (Rp 100rb)</h4>
+                    <p class="text-xs mt-2">Bahannya panas, jahitan jelek. Lo pake 2 kali udah melar/malu makenya.</p>
+                    <p class="font-bold text-red-700 mt-2">CPW = Rp 50.000 (Mahal!)</p>
+                </div>
+                <div class="bg-green-50 p-4 border border-green-200">
+                    <h4 class="font-bold text-green-800 text-sm">BAJU BAGUS (Rp 500rb)</h4>
+                    <p class="text-xs mt-2">Bahan adem, fit ganteng, lo pede makenya. Lo pake 50 kali setahun.</p>
+                    <p class="font-bold text-green-700 mt-2">CPW = Rp 10.000 (Murah!)</p>
+                </div>
+            </div>
+            <p class="text-sm italic">Aturan: Lebih baik punya 3 baju mahal yang dipake terus, daripada 10 baju murah yang numpuk di lemari.</p>
+
+            <h3 class="sub-title mt-6">Strategi Alokasi Budget</h3>
+            <p>Sesuaikan strategi dengan kondisi finansial lo saat ini. Jangan maksain gaya.</p>
+            <div class="space-y-4 mt-4">
+                <div class="bg-slate-50 p-4 border-l-4 border-slate-500">
+                    <h4 class="font-bold text-slate-900 text-sm">A. STARTER MODE (Mahasiswa/UMR)</h4>
+                    <ul class="list-disc pl-4 text-sm mt-2 space-y-1">
+                        <li><strong>Gym:</strong> Cari gym kampung (150rb/bulan) atau Calisthenics di taman (Gratis).</li>
+                        <li><strong>Protein:</strong> Telur kiloan, Tempe, Tahu. Whey Protein itu opsional.</li>
+                        <li><strong>Skincare:</strong> Facial Wash & Sunscreen minimarket.</li>
+                        <li><strong>Fashion:</strong> Kaos polos + Jeans (Thrifting berkualitas is okay).</li>
+                    </ul>
+                </div>
+                <div class="bg-slate-50 p-4 border-l-4 border-cyan-500">
+                    <h4 class="font-bold text-slate-900 text-sm">B. BUILDER MODE (Middle Class)</h4>
+                    <ul class="list-disc pl-4 text-sm mt-2 space-y-1">
+                        <li><strong>Gym:</strong> Commercial Gym (biar nyaman & alat lengkap).</li>
+                        <li><strong>Protein:</strong> Dada ayam, Ikan, Whey Protein Isolate.</li>
+                        <li><strong>Skincare:</strong> Tambah Serum (Vitamin C/Retinol) dan Moisturizer bagus.</li>
+                        <li><strong>Fashion:</strong> Mulai jahit kemeja (Tailored) dan beli sepatu kulit asli.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="page-number">08</div>
+            <div class="footer-logo">THE ARCHITECT</div>
+        </div>
+
+        <!-- PAGE 8: CHAP 4 DATING -->
+        <div class="page bg-white content-padding">
+            <h1 class="chapter-title">CHAPTER 4:<br>DATING LOGISTICS (STRATEGI KENCAN)</h1>
+            <p>Cinta itu butuh strategi. Jangan ngarep "Jodoh pasti bertemu".</p>
+            <h3 class="sub-title mt-6">1. The Texting Protocol</h3>
+            <p>Tujuan Chatting HANYA SATU: <strong>Ngatur Ketemuan</strong>. Bukan buat PDKT, bukan buat curhat, bukan buat jadi temen pena (Pen Pal).</p>
+            <ul class="list-disc space-y-2 mb-6">
+                <li><strong>Match Energy:</strong> Kalau dia bales singkat, lo bales singkat. Kalau dia bales lama (3 jam), lo bales lama (3 jam). Jangan pernah Double Text (Kirim chat beruntun tanpa dibalas).</li>
+                <li><strong>The Ask:</strong> Setelah 3-5 kali bales-balasan seru, langsung ajak jalan. Jangan bertele-tele.</li>
+                <li><strong>Salah:</strong> "Kapan-kapan jalan yuk?" (Lemah, gak spesifik).</li>
+                <li><strong>Benar:</strong> "Btw, lo suka kopi? Gue tau tempat enak di Jaksel. Yuk, Kamis sore jam 7." (Tegas, memimpin).</li>
+            </ul>
+            <h3 class="sub-title">2. The First Date Blueprint</h3>
+            <p>Tujuan kencan pertama: Evaluasi Kecocokan. Anda adalah penyeleksi, bukan pelamar yang minta diterima.</p>
+            <div class="space-y-4 mt-4">
+                <div class="border-l-4 border-slate-800 pl-4">
+                    <h4 class="font-bold text-slate-900">A. LOKASI (The Venue)</h4>
+                    <p class="text-sm"><strong>Hindari:</strong> Bioskop (Gak bisa ngobrol), Makan Malam Mewah/Fine Dining (Terlalu formal & mahal).</p>
+                    <p class="text-sm"><strong>Pilih:</strong> Coffee Shop Estetik atau Bar/Lounge.</p>
+                    <p class="text-sm"><strong>Kenapa:</strong> Suasana santai, biaya terkontrol, mudah cabut kalau gak asik.</p>
+                </div>
+                <div class="border-l-4 border-slate-500 pl-4">
+                    <h4 class="font-bold text-slate-900">B. POSISI DUDUK</h4>
+                    <img src="assets/v5-diagram-seating.jpg" onerror="this.onerror=null; this.src='https://placehold.co/800x300/f1f5f9/334155?text=FILE+NEEDED:+assets/v5-diagram-seating.jpg';" alt="L-Shape Seating" class="technical-img my-2">
+                    <p class="text-sm"><strong>Hindari:</strong> Duduk berhadapan (Face-to-Face). Ini kayak interview kerja. Tegang.</p>
+                    <p class="text-sm"><strong>Pilih:</strong> Duduk menyiku (L-Shape) atau bersebelahan di bar.</p>
+                    <p class="text-sm"><strong>Kenapa:</strong> Lo liat ke arah yang sama. Bisa nyenggol bahu/kaki dikit secara natural (Kino) tanpa maksa.</p>
+                </div>
+                <div class="border-l-4 border-cyan-500 pl-4">
+                    <h4 class="font-bold text-slate-900">C. PEMBAYARAN</h4>
+                    <p class="text-sm"><strong>Aturan:</strong> Cowok yang ngajak = Cowok yang bayar.</p>
+                    <p class="text-sm">Jangan Split Bill di kencan pertama cuma buat kopi 50 ribu. Bayar diem-diem. Tunjukin Provider Instinct lo. Kalau dia maksa bayar, tolak sopan: "Gak usah, santai aja. Next time lo yang traktir es krim di tempat lain." (Trik halus buat buka peluang kencan kedua).</p>
+                </div>
+            </div>
+            <div class="page-number">10</div>
+            <div class="footer-logo">THE ARCHITECT</div>
+        </div>
+
+        <!-- PAGE 9: CHAP 4 CONT -->
+        <div class="page bg-white content-padding">
+            <h3 class="sub-title">3. Screening: Deteksi Red Flags</h3>
+            <p>Jangan buang waktu sama wanita yang salah. Perhatikan tanda bahaya ini sejak dini:</p>
+            <img src="assets/v5-diagram-redflags.jpg" onerror="this.onerror=null; this.src='https://placehold.co/800x300/f1f5f9/334155?text=FILE+NEEDED:+assets/v5-diagram-redflags.jpg';" alt="Red Flags" class="technical-img mb-4">
+            <ul class="list-disc space-y-3 mb-6">
+                <li><strong>The Phone Addict:</strong> Main HP terus pas lo lagi ngomong. Ini tanda gak respek (Low Interest). Tinggalin.</li>
+                <li><strong>The Princess:</strong> Kasar sama pelayan/ojol/orang kecil. Kalau dia jahat sama mereka, nanti dia bakal jahat sama lo.</li>
+                <li><strong>The Victim:</strong> Cerita kalau "semua mantannya gila/jahat". Biasanya, dia yang jadi sumber masalahnya (Common Denominator).</li>
+                <li><strong>Late without Notice:</strong> Telat lebih dari 20 menit tanpa kabar. Waktu lo berharga.</li>
+            </ul>
+            <div class="section-break"></div>
+            <h1 class="chapter-title">CHAPTER 5:<br>HABIT ARCHITECTURE</h1>
+            <p>Gimana caranya biar gak males? Jangan andalin niat. Andalin Desain Lingkungan.</p>
+            <div class="page-number">11</div>
+            <div class="footer-logo">THE ARCHITECT</div>
+        </div>
+
+        <!-- PAGE 10: CHAP 5 -->
+        <div class="page bg-white content-padding">
+            <h3 class="sub-title">1. Environment Design</h3>
+            <p>Bikin akses ke kebiasaan buruk itu SUSAH, dan kebiasaan baik itu MUDAH.</p>
+            <img src="assets/v5-diagram-habitloop.jpg" onerror="this.onerror=null; this.src='https://placehold.co/800x300/f1f5f9/334155?text=FILE+NEEDED:+assets/v5-diagram-habitloop.jpg';" alt="Habit Loop" class="technical-img my-4">
+            <ul class="list-disc space-y-3 mb-6">
+                <li><strong>Mau rajin gym?</strong> Siapin tas gym, sepatu, baju, botol minum di depan pintu sebelum tidur. Pas bangun, lo tinggal angkat tas. Gak ada alesan "nyari kaos kaki dulu".</li>
+                <li><strong>Mau stop makan gorengan?</strong> Jangan beli gorengan buat ditaruh di meja makan. Kalau gak ada barangnya, lo gak bakal makan.</li>
+            </ul>
+            <h3 class="sub-title">2. The 2-Minute Rule</h3>
+            <p>Kalau lo lagi males banget nge-gym, bilang ke diri sendiri: "Gue cuma bakal pake sepatu dan dateng ke gym selama 2 menit. Abis itu kalau mau pulang, boleh."</p>
+            <div class="cyan-box">
+                <p class="mb-0 text-sm"><strong>Rahasia:</strong> Biasanya pas udah sampe sana dan pake sepatu, lo bakal lanjut latihan. Bagian tersusah itu MEMULAI.</p>
+            </div>
+            <div class="page-number">12</div>
+            <div class="footer-logo">THE ARCHITECT</div>
+        </div>
+
+        <!-- PAGE 11: CHAP 6 SCHEDULE -->
+        <div class="page bg-white content-padding">
+            <h1 class="chapter-title">CHAPTER 6:<br>THE PERFECT DAY (RUTINITAS 24 JAM)</h1>
+            <p class="mb-6">Ini adalah integrasi dari Vol 1-5. Rutinitas ini didesain ngikutin Circadian Rhythm (Jam biologis tubuh).</p>
+            <!-- VISUAL: ROUTINE -->
+            <img src="assets/v5-routine.jpg" onerror="this.onerror=null; this.src='https://placehold.co/800x200/f8fafc/334155?text=FILE+NEEDED:+assets/v5-routine.jpg';" alt="Daily Routine" class="technical-img mb-6">
+            <div class="timeline-container">
+                <div class="timeline-item"><div class="timeline-time">06:00</div><div><h4 class="font-bold text-slate-900">Wake Up & Hydrate</h4><p class="text-sm m-0">Bangun tanpa snooze. Minum 500ml air segera (rehidrasi otak). Kortisol alami lagi tinggi, manfaatin buat bangun.</p></div></div>
+                <div class="timeline-item"><div class="timeline-time">06:15</div><div><h4 class="font-bold text-slate-900">Morning Activation</h4><p class="text-sm m-0">Stretching / Push up 20x. Biar darah ngalir ke otot.</p></div></div>
+                <div class="timeline-item"><div class="timeline-time">06:30</div><div><h4 class="font-bold text-slate-900">Facial Protocol</h4><p class="text-sm m-0">1. Ice Facial (Rendam muka air es 30 detik). <br>2. Skincare (Cuci + Pelembab + Sunscreen).</p></div></div>
+                <div class="timeline-item"><div class="timeline-time">07:00</div><div><h4 class="font-bold text-slate-900">Deep Work</h4><p class="text-sm m-0">Kerjakan tugas tersulit/terpenting hari ini saat otak masih segar. Jangan buka Medsos/Email dulu.</p></div></div>
+                <div class="timeline-item"><div class="timeline-time">12:00</div><div><h4 class="font-bold text-slate-900">Lunch (Nutrition)</h4><p class="text-sm m-0">Makan siang High Protein (Ayam/Ikan). Kurangi Karbohidrat biar gak ngantuk siang (Food Coma).</p></div></div>
+                <div class="timeline-item"><div class="timeline-time">13:00</div><div><h4 class="font-bold text-slate-900">Mewing Check</h4><p class="text-sm m-0">Pasang alarm: Cek posisi lidah. Pastikan menempel di langit-langit.</p></div></div>
+                <div class="timeline-item"><div class="timeline-time">17:00</div><div><h4 class="font-bold text-slate-900">THE WORKOUT</h4><p class="text-sm m-0">Gym / Calisthenics (45-60 Menit). Matikan HP, fokus angkat beban. Ini waktu terbaik suhu tubuh buat performa fisik.</p></div></div>
+                <div class="timeline-item"><div class="timeline-time">19:00</div><div><h4 class="font-bold text-slate-900">Grooming & Dinner</h4><p class="text-sm m-0">Mandi bersih. Makan malam (Protein + Serat). Waktunya bales chat/sosialisasi.</p></div></div>
+                <div class="timeline-item"><div class="timeline-time">21:30</div><div><h4 class="font-bold text-slate-900">Night Protocol</h4><p class="text-sm m-0">1. Cuci muka + Retinol/Serum. <br>2. Jauhkan HP dari kasur (Blue light block). <br>3. Baca buku fisik 15 menit (Stoic/Bisnis).</p></div></div>
+                <div class="timeline-item border-none"><div class="timeline-time">23:00</div><div><h4 class="font-bold text-slate-900">Sleep</h4><p class="text-sm m-0">Tidur 7-8 Jam. Wajib gelap total. Gunakan lakban mulut (Mouth Tape) jika perlu untuk paksa napas hidung.</p></div></div>
+            </div>
+            <div class="page-number">13</div>
+            <div class="footer-logo">THE ARCHITECT</div>
+        </div>
+
+        <!-- PAGE 12: OUTRO -->
+        <div class="page bg-slate-900 text-white relative flex flex-col justify-center items-center p-10 text-center">
+            <div class="absolute inset-0 bg-grid opacity-30"></div>
+            <!-- VISUAL: OUTRO -->
+            <img src="assets/v5-outro.jpg" onerror="this.onerror=null; this.src='https://placehold.co/600x400/0f172a/06b6d4?text=FILE+NEEDED:+assets/v5-outro.jpg';" alt="Horizon" class="mb-8 max-w-[80%] border-4 border-cyan-500/30 rounded-lg shadow-[0_0_50px_rgba(6,182,212,0.3)] z-10">
+            <div class="z-10 max-w-lg">
+                <h1 class="text-4xl font-bold font-oswald mb-4 text-cyan-400">PENUTUP: THE INFINITE GAME</h1>
+                <p class="text-slate-300 mb-4">Selamat. Lo udah namatin manual "The Architect".</p>
+                <p class="text-slate-300 mb-6">Sekarang lo punya dua pilihan:</p>
+                <div class="text-left bg-slate-800 p-6 rounded-lg border border-slate-700 mb-8">
+                    <ol class="list-decimal pl-4 space-y-2 text-sm text-slate-300">
+                        <li>Tutup buku ini, balik scroll TikTok, dan ngeluh nasib gak berubah.</li>
+                        <li class="text-cyan-400 font-bold">Mulai lakuin Ice Facial besok pagi. Mulai makan protein. Mulai tegapin badan.</li>
+                    </ol>
+                </div>
+                <p class="text-slate-400 text-sm mb-4">Pengembangan diri itu bukan <em>Finite Game</em> (ada tamatnya). Ini adalah <strong>Infinite Game</strong> (permainan tanpa akhir). Lo gak bakal pernah "selesai". Lo bakal terus upgrade, terus belajar, terus lebih kuat sampai hari lo mati.</p>
+                <p class="text-white font-bold tracking-widest uppercase">Bertindaklah. Jadilah Arsitek buat diri lo sendiri.</p>
+                <p class="text-cyan-500 mt-8 font-oswald text-xl">SEE YOU AT THE TOP.</p>
+                <p class="text-slate-600 text-xs mt-2">- PrimeTheory.Lab</p>
+            </div>
+            <div class="page-number">16</div>
+        </div>
+    </div>
+</body>
+</html>
